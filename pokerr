@@ -45,13 +45,21 @@ def check():
     driver.find_element_by_class_name(check).click
 
 def raise(chips):
+    money_boss = find_element_by_xpath('//#[@id="canvas"]/div/div[2]/div[2]/div[4]/p[2]')
+    money_enemy = find_element_by_xpath('//#[@id="canvas"]/div/div[2]/div[3]/div[3]/p[2]')
     raisebutton = 'button-1 with-tip raise  green'
     driver.find_element_by_class_name(raisebutton).click
     valueinput = 'value'
+    if money_boss < money_enemy:
+        chips = money_boss
+    else:
+        chips = money_enemy
     driver.find_element_by_class_name(valueinput).send_keys(chips)
     valueraise = 'button-1 green'
     driver.find_element_by_class_name(valueraise).click
-
+    
+check = find_element_by_xpath('//#[@id="canvas"]/div/div[3]/span/div/button[2]')
+fold = find_element_by_xpath('//#[@id="canvas"]/div/div[3]/span/div/button[3]')
 
 # create='//*[@id="player-name"]'
 # driver.find_element_by_xpath(create).click()
