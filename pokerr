@@ -1,0 +1,64 @@
+from selenium import webdriver
+
+#Press the "Alert" button to demonstrate the Simple Alert
+
+chromedriver_location = "/Users/ryan/Desktop/steel/chromedriver"
+driver = webdriver.Chrome(chromedriver_location)
+
+driver.get("https://www.pokernow.club/games/DTMWAGeTgdBF-U8xxlZFfh9dX")
+tut='//*[@id="canvas"]/div/div[1]/div[1]/button'
+driver.find_element_by_xpath(tut).click()
+seat='//*[@id="canvas"]/div/div[2]/div[3]/button'
+driver.find_element_by_xpath(seat).click()
+nameinput='//*[@id="canvas"]/div/div[2]/div[3]/div/form/div/input'
+namereq='//*[@id="canvas"]/div/div[2]/div[3]/div/form/button'
+driver.find_element_by_xpath(nameinput).send_keys("Boss")
+driver.find_element_by_xpath(namereq).click()
+nameconfirm='/html/body/div/div/div[1]/div/div[2]/span/button'
+driver.find_element_by_xpath(nameconfirm).click()
+
+
+
+def check_action():
+    action_signal = 'action_signal'
+    try:
+        element = WebDriverWait(driver, 22).until(
+            EC.presence_of_element_located((By.CLASS_NAME, action_signal))
+        )
+    finally:
+        strategy() #needs completion
+
+def fold():
+    fold = 'button-q with-tip fold red'
+    driver.find_element_by_class_name(fold).click
+
+def call():
+    call = 'button-1 with-tip call green'
+    driver.find_element_by_class_name(call).click
+
+def check():
+    check = 'button-1 with-tip check green'
+    driver.find_element_by_class_name(check).click
+
+def raise(chips):
+    raisebutton = 'button-1 with-tip raise  green'
+    driver.find_element_by_class_name(raisebutton).click
+    valueinput = 'value'
+    driver.find_element_by_class_name(valueinput).send_keys(chips)
+    valueraise = 'button-1 green'
+    driver.find_element_by_class_name(valueraise).click
+
+
+# create='//*[@id="player-name"]'
+# driver.find_element_by_xpath(create).click()
+# driver.find_element_by_xpath(create).send_keys("Boss")
+# start='//*[@id="main-home-container"]/div[1]/form/input'
+# driver.find_element_by_xpath(start).click()
+# tut='//*[@id="canvas"]/div/div[1]/div[1]/button'
+# try:
+#     element = WebDriverWait(driver, 2).until(
+#         EC.presence_of_element_located((By.ID, tut))
+#     )
+# finally:
+#     driver.quit()
+# driver.find_element_by_xpath(tut).click()
