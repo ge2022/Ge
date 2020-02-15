@@ -27,6 +27,10 @@ def check_action():
         )
     finally:
         strategy() #needs completion
+        
+def strategy():
+    my_list = [fold(), call(), check()]
+    random.choice(my_List)()
 
 def fold():
     fold = 'button-q with-tip fold red'
